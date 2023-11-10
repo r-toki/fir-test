@@ -1,0 +1,13 @@
+{
+  "name": "fir-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "deploy:all": "firebase deploy",
+    "deploy:hosting": "firebase deploy --except functions",
+    "deploy:functions": "firebase deploy --except hosting",
+    "emu:test": "firebase emulators:start",
+    "emu:kill": "for port in 9099 5001 8080 5000 8085 9199 9299; do lsof -t -i:$port | xargs -r kill -9; done"
+  }
+}
