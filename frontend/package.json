@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:emu": "tsc && vite build --mode=emu",
+    "build:dev": "tsc && vite build --mode=development",
     "preview": "vite preview",
     "lint": "eslint \"./src/**/*.{ts,tsx}\"",
     "lint:fix": "yarn lint --fix",

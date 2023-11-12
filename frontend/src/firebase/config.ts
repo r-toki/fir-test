@@ -19,7 +19,7 @@ export const db = getFirestore(app);
 export const functions = getFunctions(app, "asia-northeast1");
 export const storage = getStorage(app);
 
-if (import.meta.env.VITE_EMU == "1") {
+if (["localhost", "127.0.0.1"].includes(location.hostname)) {
   connectAuthEmulator(auth, "http://127.0.0.1:9099", { disableWarnings: true });
   connectFirestoreEmulator(db, "127.0.0.1", 8080);
   connectFunctionsEmulator(functions, "127.0.0.1", 5001);
