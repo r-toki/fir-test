@@ -7,8 +7,9 @@
     "deploy:hosting": "firebase deploy --except functions",
     "deploy:functions": "firebase deploy --except hosting",
     "frontend:build:dev": "yarn --cwd frontend build:dev",
-    "emu:dev": "yarn frontend:build:dev && firebase emulators:start --import=./emu-data --export-on-exit",
-    "emu:test": "yarn frontend:build:dev && firebase emulators:start",
+    "functions:build": "yarn --cwd functions build",
+    "emu:dev": "yarn frontend:build:dev && yarn functions:build && firebase emulators:start --import=./emu-data --export-on-exit",
+    "emu:test": "yarn frontend:build:dev && yarn functions:build && firebase emulators:start",
     "emu:kill": "for port in 9099 5001 8080 5000 8085 9199 9299; do lsof -t -i:$port | xargs -r kill -9; done"
   }
 }
