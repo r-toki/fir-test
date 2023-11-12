@@ -1,10 +1,10 @@
-import "~/index.css";
-import "~/firebase/config.ts";
+import "./index.css";
+import "./firebase/config.ts";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { App } from "./App.tsx";
+import { App } from "./_app.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
