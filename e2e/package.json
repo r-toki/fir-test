@@ -1,0 +1,13 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "open:e2e": "cypress open --e2e --browser chrome",
+    "run:e2e": "cypress run --e2e --browser chrome"
+  },
+  "devDependencies": {
+    "cypress": "^13.5.0"
+  }
+}

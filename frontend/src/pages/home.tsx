@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1>App</h1>
+      <h1>Home</h1>
 
       <Fallback isLoading={isLoading} isError={isError} error={error}>
         {data && (
