@@ -2,6 +2,7 @@ import * as Cors from "cors";
 import type { Request, Response } from "express";
 import { onRequest } from "firebase-functions/v2/https";
 import { setGlobalOptions } from "firebase-functions/v2/options";
+import { random } from "lodash";
 
 import { sleep } from "~/utils";
 
@@ -21,7 +22,7 @@ function appOnRequest(fn: (req: Request, res: Response) => void | Promise<void>)
 }
 
 export const healthCheck = appOnRequest(async (_req, res) => {
-  await sleep(1_000);
+  await sleep(random(1, 5) * 1_000);
   res.json({
     message: "Good evening from firebase!",
   });

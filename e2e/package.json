@@ -8,6 +8,7 @@
     "run:e2e": "cypress run --e2e --browser chrome"
   },
   "devDependencies": {
-    "cypress": "^13.5.0"
+    "cypress": "^13.5.0",
+    "lodash": "^4.17.21"
   }
 }

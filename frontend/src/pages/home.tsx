@@ -4,8 +4,13 @@ import { Fallback } from "~/components/fallback";
 import { healthCheck } from "~/firebase/functions";
 
 export default function Home() {
-  const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["healthCheck"],
+  const q1 = useQuery({
+    queryKey: ["healthCheck", "1"],
+    queryFn: healthCheck,
+  });
+
+  const q2 = useQuery({
+    queryKey: ["healthCheck", "2"],
     queryFn: healthCheck,
   });
 
@@ -13,14 +18,25 @@ export default function Home() {
     <div>
       <h1>Home</h1>
 
-      <Fallback isLoading={isLoading} isError={isError} error={error}>
-        {data && (
-          <div>
-            <div>Fetched.</div>
-            <div>{data.message}</div>
-          </div>
-        )}
-      </Fallback>
+      <div className="space-y-2">
+        <Fallback isLoading={q1.isLoading} isError={q1.isError} error={q1.error}>
+          {q1.data && (
+            <div>
+              <div>Fetched q1.</div>
+              <div>{q1.data.message}</div>
+            </div>
+          )}
+        </Fallback>
+
+        <Fallback isLoading={q2.isLoading} isError={q2.isError} error={q2.error}>
+          {q2.data && (
+            <div>
+              <div>Fetched q2.</div>
+              <div>{q2.data.message}</div>
+            </div>
+          )}
+        </Fallback>
+      </div>
     </div>
   );
 }
